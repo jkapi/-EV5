@@ -177,6 +177,20 @@ namespace ev5
             return allprojects;
         }
 
+        public static void Upload(string project, string projectnaam, string uploaddatum, int userid)
+        {
+            SqlCommand query = new SqlCommand("INSERT INTO Project VALUES (@projectid, @projectnaam, @uploaddatum, @project, @usesrid)", connection);
+
+            //query.Parameters.AddWithValue("@id", id);
+            //query.Parameters.AddWithValue("@schoolnaam", schoolnaam);
+            // query.Parameters.AddWithValue("@email", email);
+
+            connection.Open();
+            query.ExecuteNonQuery();
+            connection.Close();
+
+        }
+
         public static List<string> GeefAlleScholen
         {
             get { return allescholen; }

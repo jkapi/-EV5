@@ -67,3 +67,6 @@ C:\Users\maart\OneDrive\Documenten\GitHub\-EV5\ev5\bin\Debug\Database1_log.ldf
 C:\Users\maart\OneDrive\Documenten\GitHub\-EV5\ev5\bin\Debug\ev5.exe.config
 C:\Users\maart\OneDrive\Documenten\GitHub\-EV5\ev5\bin\Debug\ev5.exe
 C:\Users\maart\OneDrive\Documenten\GitHub\-EV5\ev5\bin\Debug\ev5.pdb
+C:\Users\Kevin van de Ven\Documents\GitHub\-EV5\ev5\obj\Debug\ev5.csprojResolveAssemblyReference.cache
+C:\Users\Kevin van de Ven\Documents\GitHub\-EV5\ev5\obj\Debug\ev5.exe
+C:\Users\Kevin van de Ven\Documents\GitHub\-EV5\ev5\obj\Debug\ev5.pdb

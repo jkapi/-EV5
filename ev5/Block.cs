@@ -113,8 +113,6 @@ namespace ev5
         private void DeleteClick(object sender, EventArgs e)
         {
             Delete();
-
-            form.DeleteBlock(this);
         }
 
         // delete alle bijbehorende instanties van het blok van de form

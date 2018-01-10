@@ -33,22 +33,23 @@
             // 
             // Projectbox
             // 
+            this.Projectbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.Projectbox.FormattingEnabled = true;
-            this.Projectbox.Location = new System.Drawing.Point(45, 12);
+            this.Projectbox.ItemHeight = 29;
+            this.Projectbox.Location = new System.Drawing.Point(12, 12);
             this.Projectbox.Name = "Projectbox";
-            this.Projectbox.Size = new System.Drawing.Size(205, 147);
+            this.Projectbox.Size = new System.Drawing.Size(743, 613);
             this.Projectbox.TabIndex = 0;
-            this.Projectbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Projectbox_DoubleClick);
+            this.Projectbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Projectbox_Doubleclick);
             // 
             // Downloadpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(767, 647);
             this.Controls.Add(this.Projectbox);
             this.Name = "Downloadpage";
             this.Text = "Downloadpage";
-            this.Load += new System.EventHandler(this.Downloadpage_Load);
             this.ResumeLayout(false);
 
         }

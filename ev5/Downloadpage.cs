@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ev5
@@ -19,22 +12,21 @@ namespace ev5
 
         public Downloadpage(string searchcommand)
         {
+            InitializeComponent();
+
             this.searchcommand = searchcommand;
-        }
 
-        private string searchcommand;
-
-        private void Downloadpage_Load(object sender, EventArgs e)
-        {
             List<UserProject> projects = Database.SearchProjects(searchcommand);
 
             foreach (UserProject project in projects)
             {
-                Projectbox.Items.Add(project);
+                Projectbox.Items.Add(project.ToString());
             }
         }
 
-        private void Projectbox_DoubleClick(object sender, MouseEventArgs e)
+        private string searchcommand;
+
+        private void Projectbox_Doubleclick(object sender, MouseEventArgs e)
         {
             UserProject project = (UserProject)Projectbox.SelectedItem;
             UI window = new UI(project.Projectname, project.Content);

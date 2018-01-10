@@ -276,8 +276,6 @@ namespace ev5
 
         private void DownloadButton_Click(object sender, EventArgs e)
         {
-            Homepage homepage = new Homepage();
-            homepage.Show();
             Close();
         }
 

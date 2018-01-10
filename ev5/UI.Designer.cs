@@ -229,6 +229,7 @@
             this.Name = "UI";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UI_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_Keydown);

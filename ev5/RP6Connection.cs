@@ -10,6 +10,7 @@ namespace ev5
         public SerialPort sPort;
         private bool connected;
         private int portnumber = 0;
+        private bool running;
 
         public bool Connected
         {
@@ -18,13 +19,14 @@ namespace ev5
 
         public void Setup()
         {
+            running = true;
             // rp6 instantie blijft constant naar een 
             // connectie zoeken en die ook onderhouden
-            while (true)
+            while (running)
             {
                 // blijf zoeken tot een verbinding tot
                 // stand is gebracht
-                while (connected == false)
+                while (connected == false && running)
                 {
                     // reset het poortnummer als het getal te hoog wordt
                     if (portnumber > 10)
@@ -72,6 +74,12 @@ namespace ev5
         {
             sPort = null;
             connected = false;
+            running = false;
+        }
+
+        public void Stop()
+        {
+            running = false;
         }
     }
 }

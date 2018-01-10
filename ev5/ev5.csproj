@@ -113,6 +113,9 @@
     <EmbeddedResource Include="Homepage.resx">
       <DependentUpon>Homepage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inlogpagina.resx">
+      <DependentUpon>Inlogpagina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="newAccount.resx">
       <DependentUpon>newAccount.cs</DependentUpon>
     </EmbeddedResource>

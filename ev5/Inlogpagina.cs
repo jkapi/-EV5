@@ -24,6 +24,7 @@ namespace ev5
                     //verschuilt dit form en maakt een nieuwe aan
                     UI userinterface = new UI();
                     userinterface.Show();
+                    userinterface.FormClosed += UIClosed;
                     Hide();
                 }
                 else
@@ -41,6 +42,11 @@ namespace ev5
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void UIClosed(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

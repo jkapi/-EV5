@@ -294,5 +294,10 @@ namespace ev5
             help.Show();
             Close();
         }
+
+        private void UI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            rp6.Stop();
+        }
     }
 }

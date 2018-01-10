@@ -82,3 +82,4 @@ C:\Users\Kevin van de Ven\Documents\GitHub\-EV5\ev5\obj\Debug\ev5.UI.resources
 C:\Users\Kevin van de Ven\Documents\GitHub\-EV5\ev5\obj\Debug\ev5.Properties.Resources.resources
 C:\Users\Kevin van de Ven\Documents\GitHub\-EV5\ev5\obj\Debug\ev5.csproj.GenerateResource.Cache
 C:\Users\Kevin van de Ven\Documents\GitHub\-EV5\ev5\obj\Debug\ev5.csproj.CoreCompileInputs.cache
+C:\Users\Kevin van de Ven\Documents\GitHub\-EV5\ev5\obj\Debug\ev5.PromptBox.resources

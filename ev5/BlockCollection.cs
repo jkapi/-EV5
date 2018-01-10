@@ -25,6 +25,16 @@ namespace ev5
             return command;
         }
 
+        public void RemoveBlock(Block block)
+        {
+            collection.Remove(block);
+        }
+
+        public void RemoveAllBlocks()
+        {
+            collection.Clear();
+        }
+
         public void AddBlock(Block block)
         {
             collection.Add(block);

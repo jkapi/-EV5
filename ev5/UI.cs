@@ -69,11 +69,6 @@ namespace ev5
 
         }
 
-        public void DeleteBlock(Block block)
-        {
-            blocks.Remove(block);
-        }
-
         private void CompileButton_Click(object sender, EventArgs e)
         {
             // Stuur de blokjescode in een string door naar de rp6 via
@@ -112,7 +107,6 @@ namespace ev5
                     case "TurnBlock": newblock = new Block(this, TurnBlock, Blocktype.Turn); break;
                     default: throw new Exception("Invalid block sender");
                 }
-                blocks.Add(newblock);
                 collection.AddBlock(newblock);
             }
         }
@@ -150,7 +144,7 @@ namespace ev5
             }
             if (e.KeyCode == Keys.N && (ModifierKeys & Keys.Control) == Keys.Control)
             {
-                DeleteAllBlocks();
+                collection.RemoveAllBlocks();
                 file.Currentfile = "";
             }
             if ((ModifierKeys & Keys.Shift) == Keys.Shift)
@@ -166,16 +160,6 @@ namespace ev5
             this.KeyPreview = true;
         }
 
-        public void DeleteAllBlocks()
-        {
-            // verwijder alle blokken van de form
-            foreach (Block block in blocks)
-            {
-                block.Delete();
-            }
-            blocks.Clear();
-        }
-
         // zet een string om tot blokjescode
         // is niet in file handling of block klasse gezet
         // omdat alle pictureboxen anders als parameters mee moeten
@@ -183,7 +167,7 @@ namespace ev5
         private void Decompile(string command)
         {
             // reset de code environment
-            DeleteAllBlocks();
+            collection.RemoveAllBlocks();
             Thread.Sleep(100);
             command = command.Remove(0, 1);
             command = command.Remove(command.Length - 1, 1);
@@ -234,7 +218,7 @@ namespace ev5
                     block.OnClick(block, new EventArgs());
                     block.SetParameter(parameter);
                     block.ResetPosition();
-                    blocks.Add(block);
+                    collection.AddBlock(block);
                 }
                 // verwijder het zojuist uitgelezen stuk code, 
                 // zodat het programma niet oneindig hetzelfde

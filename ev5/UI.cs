@@ -252,11 +252,19 @@ namespace ev5
 
         private void UploadButton_Click(object sender, EventArgs e)
         {
-
             // TODO: methode voor db maken
+            PromptBox Givename = new PromptBox("Voer hier een naam voor je project in.");
+            Givename.Show();
+            Givename.OnFinished += Givename_OnFinished;  
+        }
+
+        private void Givename_OnFinished(object sender, string e)
+        {
+            string Projectnaam = e;
             int userid = Database.GetUserId(gebruikersnaam);
-            //PromptBox 
-            //Database.Upload(collection.Compile(), , userid;
+            DateTime thisDay = DateTime.Today;
+            //thisDay.ToString
+            Database.Upload(collection.Compile(), Projectnaam, ,userid);
         }
 
         private void HelpImage_Click(object sender, EventArgs e)

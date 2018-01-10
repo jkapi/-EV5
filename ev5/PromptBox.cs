@@ -12,6 +12,11 @@ namespace ev5
 {
     public partial class PromptBox : Form
     {
+        public PromptBox()
+        {
+            InitializeComponent();
+        }
+
         public PromptBox(string message, string buttonText = "Ok", string placeholder = "")
         {
             InitializeComponent();

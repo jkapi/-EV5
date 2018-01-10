@@ -89,23 +89,25 @@ namespace ev5
             // S.Decompile(Block.Compile(blocks));
         }
 
-        private void TurnBlock_Click(object sender, EventArgs e)
+        private void Block_Click(object sender, EventArgs e)
         {
             // als er een blok wordt gesleept wordt deze event handler geblokkeerd, want anders kan er 
             // een blok in het standaardblok worden gezet waardoor de deleteknoppen niet meer gaan werken
             if (!Block.Dragging)
             {
-                blocks.Add(new Block(this, TurnBlock, Blocktype.Turn));
-            }
-        }
-
-        private void MoveBlock_Click(object sender, EventArgs e)
-        {
-            // als er een blok wordt gesleept wordt deze event handler geblokkeerd, want anders kan er 
-            // een blok in het standaardblok worden gezet waardoor de deleteknoppen niet meer gaan werken
-            if (!Block.Dragging)
-            {
-                blocks.Add(new Block(this, MoveBlock, Blocktype.Move));
+                Block newblock;
+                switch(((PictureBox)sender).Name)
+                {
+                    case "DisplayBlock": newblock = new Block(this, DisplayBlock, Blocktype.Disp); break;
+                    case "MoveBlock": newblock = new Block(this, MoveBlock, Blocktype.Move); break;
+                    case "BeepBlock": newblock = new Block(this, BeepBlock, Blocktype.Beep); break;
+                    case "MoveuntilBlock": newblock = new Block(this, MoveuntilBlock, Blocktype.Umov); break;
+                    case "SleepBlock": newblock = new Block(this, SleepBlock, Blocktype.Slep); break;
+                    case "TurnBlock": newblock = new Block(this, TurnBlock, Blocktype.Turn); break;
+                    default: throw new Exception("Invalid block sender");
+                }
+                blocks.Add(newblock);
+                collection.AddBlock(newblock);
             }
         }
 
@@ -166,40 +168,6 @@ namespace ev5
                 block.Delete();
             }
             blocks.Clear();
-        }
-
-        // deze event handlers laten de gebruiker een nieuw blok slepen
-        // zie de block klasse voor rest van de code
-        private void SleepBlock_Click(object sender, EventArgs e)
-        {
-            if (!Block.Dragging)
-            {
-                blocks.Add(new Block(this, SleepBlock, Blocktype.Slep));
-            }
-        }
-
-        private void DisplayBlock_Click(object sender, EventArgs e)
-        {
-            if (!Block.Dragging)
-            {
-                blocks.Add(new Block(this, DisplayBlock, Blocktype.Disp));
-            }
-        }
-
-        private void BeepBlock_Click(object sender, EventArgs e)
-        {
-            if (!Block.Dragging)
-            {
-                blocks.Add(new Block(this, BeepBlock, Blocktype.Beep));
-            }
-        }
-
-        private void MoveuntilBlock_Click(object sender, EventArgs e)
-        {
-            if (!Block.Dragging)
-            {
-                blocks.Add(new Block(this, MoveuntilBlock, Blocktype.Umov));
-            }
         }
 
         // zet een string om tot blokjescode

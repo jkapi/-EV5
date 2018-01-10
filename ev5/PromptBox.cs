@@ -20,6 +20,7 @@ namespace ev5
         public PromptBox(string message, string buttonText = "Ok", string placeholder = "")
         {
             InitializeComponent();
+            AcceptButton = button1;
             label1.Text = message;
             button1.Text = buttonText;
             textBox1.Text = placeholder;

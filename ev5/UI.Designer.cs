@@ -142,7 +142,7 @@
             this.SleepBlock.Size = new System.Drawing.Size(100, 125);
             this.SleepBlock.TabIndex = 11;
             this.SleepBlock.TabStop = false;
-            this.SleepBlock.Click += new System.EventHandler(this.SleepBlock_Click);
+            this.SleepBlock.Click += new System.EventHandler(this.Block_Click);
             // 
             // DisplayBlock
             // 
@@ -152,7 +152,7 @@
             this.DisplayBlock.Size = new System.Drawing.Size(100, 125);
             this.DisplayBlock.TabIndex = 10;
             this.DisplayBlock.TabStop = false;
-            this.DisplayBlock.Click += new System.EventHandler(this.DisplayBlock_Click);
+            this.DisplayBlock.Click += new System.EventHandler(this.Block_Click);
             // 
             // BeepBlock
             // 
@@ -162,7 +162,7 @@
             this.BeepBlock.Size = new System.Drawing.Size(100, 125);
             this.BeepBlock.TabIndex = 9;
             this.BeepBlock.TabStop = false;
-            this.BeepBlock.Click += new System.EventHandler(this.BeepBlock_Click);
+            this.BeepBlock.Click += new System.EventHandler(this.Block_Click);
             // 
             // MoveuntilBlock
             // 
@@ -172,7 +172,7 @@
             this.MoveuntilBlock.Size = new System.Drawing.Size(100, 125);
             this.MoveuntilBlock.TabIndex = 8;
             this.MoveuntilBlock.TabStop = false;
-            this.MoveuntilBlock.Click += new System.EventHandler(this.MoveuntilBlock_Click);
+            this.MoveuntilBlock.Click += new System.EventHandler(this.Block_Click);
             // 
             // LogoBox
             // 
@@ -192,7 +192,7 @@
             this.TurnBlock.Size = new System.Drawing.Size(100, 125);
             this.TurnBlock.TabIndex = 1;
             this.TurnBlock.TabStop = false;
-            this.TurnBlock.Click += new System.EventHandler(this.TurnBlock_Click);
+            this.TurnBlock.Click += new System.EventHandler(this.Block_Click);
             // 
             // MoveBlock
             // 
@@ -202,7 +202,7 @@
             this.MoveBlock.Size = new System.Drawing.Size(100, 125);
             this.MoveBlock.TabIndex = 0;
             this.MoveBlock.TabStop = false;
-            this.MoveBlock.Click += new System.EventHandler(this.MoveBlock_Click);
+            this.MoveBlock.Click += new System.EventHandler(this.Block_Click);
             // 
             // UI
             // 

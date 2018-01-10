@@ -8,6 +8,7 @@ namespace ev5
         public Inlogpagina()
         {
             InitializeComponent();
+            AcceptButton = LoginBttn;
         }
 
         private void button1_Click(object sender, EventArgs e)

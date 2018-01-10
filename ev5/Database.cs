@@ -51,7 +51,14 @@ namespace ev5
             query.Parameters.AddWithValue("@newpassword", password);
 
             connection.Open();
-            query.ExecuteNonQuery();
+            try
+            {
+                query.ExecuteNonQuery();
+            }
+            catch(System.Data.SqlClient.SqlException e)
+            {
+                throw e;
+            }
             connection.Close();
         }
 
@@ -181,11 +188,12 @@ namespace ev5
 
         public static void Upload(string project, string projectnaam, string uploaddatum, int userid)
         {
-            SqlCommand query = new SqlCommand("INSERT INTO Project VALUES (@projectid, @projectnaam, @uploaddatum, @project, @usesrid)", connection);
+            SqlCommand query = new SqlCommand("INSERT INTO Project VALUES (@projectnaam, @uploaddatum, @project, @userid)", connection);
 
-            //query.Parameters.AddWithValue("@id", id);
-            //query.Parameters.AddWithValue("@schoolnaam", schoolnaam);
-            // query.Parameters.AddWithValue("@email", email);
+            query.Parameters.AddWithValue("@projectnaam", projectnaam);
+            query.Parameters.AddWithValue("@uploaddatum", uploaddatum);
+            query.Parameters.AddWithValue("@project", project);
+            query.Parameters.AddWithValue("@userid", userid);
 
             connection.Open();
             query.ExecuteNonQuery();

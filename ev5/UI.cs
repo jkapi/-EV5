@@ -255,7 +255,8 @@ namespace ev5
 
             // TODO: methode voor db maken
             int userid = Database.GetUserId(gebruikersnaam);
-            //Database.Upload(collection.Compile(), ;
+            //PromptBox 
+            //Database.Upload(collection.Compile(), , userid;
         }
 
         private void HelpImage_Click(object sender, EventArgs e)

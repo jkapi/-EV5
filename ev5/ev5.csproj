@@ -123,6 +123,9 @@
     <EmbeddedResource Include="newAccount.resx">
       <DependentUpon>newAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PromptBox.resx">
+      <DependentUpon>PromptBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI.resx">
       <DependentUpon>UI.cs</DependentUpon>
     </EmbeddedResource>

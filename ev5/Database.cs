@@ -74,11 +74,13 @@ namespace ev5
                     {
                         id = reader.GetInt32(0);
                     }
+                    connection.Close();
                     return id;
                 }
                 catch (SqlException ex)
                 {
                     Console.WriteLine(ex.ToString());
+                    connection.Close();
                     return 0;
                 }
             }

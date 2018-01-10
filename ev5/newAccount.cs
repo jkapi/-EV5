@@ -8,7 +8,6 @@ namespace ev5
         public newAccount()
         {
             InitializeComponent();
-            this.AcceptButton = button1;
             SchoolComboBox.Items.Clear();
             Database.Getschoolen();
             foreach (string school in Database.GeefAlleScholen)

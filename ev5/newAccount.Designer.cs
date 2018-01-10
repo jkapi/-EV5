@@ -300,7 +300,7 @@
             this.Controls.Add(this.groupBoxNaam);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "newAccount";
-            this.Text = "Nieuw account aanmaken";
+            this.Text = "newAccount";
             this.groupBoxNaam.ResumeLayout(false);
             this.groupBoxNaam.PerformLayout();
             this.GroupBoxUser.ResumeLayout(false);

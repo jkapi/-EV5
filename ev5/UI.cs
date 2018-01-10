@@ -269,8 +269,9 @@ namespace ev5
             string Projectnaam = e;
             int userid = Database.GetUserId(gebruikersnaam);
             DateTime thisDay = DateTime.Today;
-            //thisDay.ToString
-            Database.Upload(collection.Compile(), Projectnaam, ,userid);
+            string Today = thisDay.ToString("MM'/'dd'/'yyyy HH':'mm':'ss.fff");
+            Today = Today.Substring(0, 10);
+            Database.Upload(collection.Compile(), Projectnaam, Today, userid);
         }
 
         private void HelpImage_Click(object sender, EventArgs e)

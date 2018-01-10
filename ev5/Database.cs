@@ -188,6 +188,8 @@ namespace ev5
 
         public static void Upload(string project, string projectnaam, string uploaddatum, int userid)
         {
+
+            // git git git
             SqlCommand query = new SqlCommand("INSERT INTO Project VALUES (@projectnaam, @uploaddatum, @project, @userid)", connection);
 
             query.Parameters.AddWithValue("@projectnaam", projectnaam);

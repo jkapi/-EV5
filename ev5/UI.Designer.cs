@@ -42,6 +42,8 @@
             this.LogoBox = new System.Windows.Forms.PictureBox();
             this.TurnBlock = new System.Windows.Forms.PictureBox();
             this.MoveBlock = new System.Windows.Forms.PictureBox();
+            this.Searchbar = new System.Windows.Forms.TextBox();
+            this.Searchbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.HelpImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SleepBlock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayBlock)).BeginInit();
@@ -204,12 +206,35 @@
             this.MoveBlock.TabStop = false;
             this.MoveBlock.Click += new System.EventHandler(this.Block_Click);
             // 
+            // Searchbar
+            // 
+            this.Searchbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.Searchbar.Location = new System.Drawing.Point(500, 12);
+            this.Searchbar.Name = "Searchbar";
+            this.Searchbar.Size = new System.Drawing.Size(768, 83);
+            this.Searchbar.TabIndex = 15;
+            this.Searchbar.Text = "Search a project..";
+            // 
+            // Searchbutton
+            // 
+            this.Searchbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Searchbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.Searchbutton.Location = new System.Drawing.Point(1274, 12);
+            this.Searchbutton.Name = "Searchbutton";
+            this.Searchbutton.Size = new System.Drawing.Size(150, 75);
+            this.Searchbutton.TabIndex = 16;
+            this.Searchbutton.Text = "Search";
+            this.Searchbutton.UseVisualStyleBackColor = true;
+            this.Searchbutton.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.Searchbutton);
+            this.Controls.Add(this.Searchbar);
             this.Controls.Add(this.HelpImage);
             this.Controls.Add(this.UploadButton);
             this.Controls.Add(this.DownloadButton);
@@ -242,6 +267,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TurnBlock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MoveBlock)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -261,6 +287,8 @@
         private System.Windows.Forms.Button DownloadButton;
         private System.Windows.Forms.Button UploadButton;
         private System.Windows.Forms.PictureBox HelpImage;
+        private System.Windows.Forms.TextBox Searchbar;
+        private System.Windows.Forms.Button Searchbutton;
     }
 }
 

@@ -88,6 +88,7 @@
     <Compile Include="newAccount.Designer.cs">
       <DependentUpon>newAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Project.cs" />
     <Compile Include="PromptBox.cs">
       <SubType>Form</SubType>
     </Compile>

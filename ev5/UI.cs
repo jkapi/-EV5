@@ -276,5 +276,11 @@ namespace ev5
         {
             rp6.Stop();
         }
+
+        private void Searchbutton_Click(object sender, EventArgs e)
+        {
+            Downloadpage downloadpage = new Downloadpage(Searchbar.Text);
+            downloadpage.Show();
+        }
     }
 }

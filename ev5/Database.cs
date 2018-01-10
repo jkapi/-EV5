@@ -201,6 +201,37 @@ namespace ev5
 
         }
 
+        public static List<UserProject> SearchProjects(string search)
+        {
+            List<UserProject> projects = new List<UserProject>();
+
+            search = search.ToLower();
+
+            SqlCommand cmd = new SqlCommand("select * from Project where Projectnaam like @search OR Title like @start_to_end", connection);
+            cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+            if (search.Length > 5)
+            {
+                cmd.Parameters.AddWithValue("@start_to_end", search.Substring(0,3) + "%" + search.Substring(search.Length - 1, -3));
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+            }
+
+            connection.Open();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    projects.Add(new UserProject(reader.GetInt32(4), reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3)));
+                }
+            }
+            connection.Close();
+
+            return projects;
+        }
+
         public static List<string> GeefAlleScholen
         {
             get { return allescholen; }

@@ -53,7 +53,13 @@ namespace ev5
         {
             newAccount MakeNewAccount = new newAccount();
             MakeNewAccount.Show();
+            MakeNewAccount.FormClosed += Reshow;
             this.Hide();
+        }
+
+        private void Reshow(object a = null, object b = null)
+        {
+            Show();
         }
     }
 }

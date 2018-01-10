@@ -20,7 +20,7 @@ namespace ev5
 
             foreach (UserProject project in projects)
             {
-                Projectbox.Items.Add(project.ToString());
+                Projectbox.Items.Add(project);
             }
         }
 

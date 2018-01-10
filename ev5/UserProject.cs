@@ -15,6 +15,16 @@ namespace ev5
         private DateTime uploaddate;
         private string content;
 
+        public string Content
+        {
+            get { return content; }
+        }
+
+        public string Projectname
+        {
+            get { return projectname; }
+        }
+
         public override string ToString()
         {
             return "gemaakt door: " + username +

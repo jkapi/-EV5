@@ -69,6 +69,12 @@
     <Compile Include="Block.cs" />
     <Compile Include="BlockCollection.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Downloadpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Downloadpage.Designer.cs">
+      <DependentUpon>Downloadpage.cs</DependentUpon>
+    </Compile>
     <Compile Include="File_handling.cs" />
     <Compile Include="HelpWindow.cs">
       <SubType>Form</SubType>
@@ -101,8 +107,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserProject.cs" />
     <EmbeddedResource Include="AddnewSchool.resx">
       <DependentUpon>AddnewSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Downloadpage.resx">
+      <DependentUpon>Downloadpage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelpWindow.resx">
       <DependentUpon>HelpWindow.cs</DependentUpon>

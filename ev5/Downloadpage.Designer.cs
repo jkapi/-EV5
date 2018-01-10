@@ -38,6 +38,7 @@
             this.Projectbox.Name = "Projectbox";
             this.Projectbox.Size = new System.Drawing.Size(205, 147);
             this.Projectbox.TabIndex = 0;
+            this.Projectbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Projectbox_DoubleClick);
             // 
             // Downloadpage
             // 

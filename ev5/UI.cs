@@ -14,6 +14,12 @@ namespace ev5
             this.gebruikersnaam = gebruikersnaam;
         }
 
+        public UI(string projecctname, string code)
+        {
+            InitializeComponent();
+            Decompile(code);
+        }
+
         private string gebruikersnaam;
 
         private List<Block> blocks = new List<Block>();

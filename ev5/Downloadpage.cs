@@ -33,5 +33,13 @@ namespace ev5
                 Projectbox.Items.Add(project);
             }
         }
+
+        private void Projectbox_DoubleClick(object sender, MouseEventArgs e)
+        {
+            UserProject project = (UserProject)Projectbox.SelectedItem;
+            UI window = new UI(project.Projectname, project.Content);
+            window.Show();
+            Close();
+        }
     }
 }

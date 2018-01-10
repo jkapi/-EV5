@@ -36,13 +36,20 @@ namespace ev5
             string Achternaam = AchternaamTB.Text;
             if (Voornaam != "" && Achternaam != "" && username != "" && wachtwoord != "")
             {
-                Database.CreateUser(username, wachtwoord);
-                int id = Database.GetUserId(username);
-                Database.SetName(id, Voornaam, Tussenvoegsel, Achternaam);
+                try
+                {
+                    Database.CreateUser(username, wachtwoord);
+                    int id = Database.GetUserId(username);
+                    Database.SetName(id, Voornaam, Tussenvoegsel, Achternaam);
 
-                string email = EmailTB.Text;
-                Database.Setgebruiker(id, email, School);
-                Close();
+                    string email = EmailTB.Text;
+                    Database.Setgebruiker(id, email, School);
+                    Close();
+                }
+                catch(System.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Username is al in gebruik.");
+                }
             }
             else
             {

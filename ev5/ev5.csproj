@@ -91,9 +91,6 @@
     <Compile Include="PromptBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PromptBox.Designer.cs">
-      <DependentUpon>PromptBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="RP6Connection.cs" />
     <Compile Include="Blocktype.cs" />
     <Compile Include="UI.cs">
@@ -115,9 +112,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="newAccount.resx">
       <DependentUpon>newAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PromptBox.resx">
-      <DependentUpon>PromptBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI.resx">
       <DependentUpon>UI.cs</DependentUpon>

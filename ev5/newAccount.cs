@@ -43,7 +43,7 @@ namespace ev5
                 string email = EmailTB.Text;
                 Database.Setgebruiker(id, email, School);
 
-                UI userinterface = new UI();
+                UI userinterface = new UI(username);
                 userinterface.Show();
                 Close();
             }

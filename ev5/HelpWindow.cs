@@ -16,8 +16,6 @@ namespace ev5
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            UI window = new UI();
-            window.Show();
             Close();        
         }
     }

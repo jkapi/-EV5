@@ -8,10 +8,13 @@ namespace ev5
 {
     public partial class UI : Form
     {
-        public UI()
+        public UI(string gebruikersnaam)
         {
             InitializeComponent();
+            this.gebruikersnaam = gebruikersnaam;
         }
+
+        private string gebruikersnaam;
 
         private List<Block> blocks = new List<Block>();
 
@@ -283,16 +286,23 @@ namespace ev5
 
         private void UploadButton_Click(object sender, EventArgs e)
         {
-            // TODO: methode voor db maken
 
-            // Database.Upload(Block.Compile(blocks);
+            // TODO: methode voor db maken
+            int userid = Database.GetUserId(gebruikersnaam);
+            //Database.Upload(collection.Compile(), ;
         }
 
         private void HelpImage_Click(object sender, EventArgs e)
         {
             HelpWindow help = new HelpWindow();
             help.Show();
-            Close();
+            help.FormClosed += Reshow;
+            Hide();
+        }
+
+        private void Reshow(object a = null, object b = null)
+        {
+            Show();
         }
 
         private void UI_FormClosed(object sender, FormClosedEventArgs e)

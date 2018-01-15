@@ -1,13 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ev5
 {
     public partial class Downloadpage : Form
     {
+
+        private string searchcommand;
         public Downloadpage()
         {
-            this.searchcommand = "*";
+            this.searchcommand = "";
             InitializeComponent();
         }
 
@@ -16,8 +19,6 @@ namespace ev5
             this.searchcommand = searchcommand;
             InitializeComponent();
         }
-
-            this.searchcommand = searchcommand;
 
         private void Downloadpage_Load(object sender, EventArgs e)
         {
@@ -42,8 +43,6 @@ namespace ev5
                 Projectbox.Items.Add(project);
             }
         }
-
-        private string searchcommand;
         
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

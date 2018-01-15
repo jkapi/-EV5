@@ -1,193 +1,186 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.Drawing;
-using System.Threading;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ev5
 {
-    public sealed class Block
+    public partial class Block : UserControl
     {
-        private static int blockcount = 0;
-        private static bool dragging = false;
-        private static List<int> dropnext = new List<int>();
-
-        private UI form;
-        private PictureBox box;
-        private TextBox parameterbox;
-        private Button deletebutton;
-        private Blocktype type;
-
-        private int id;
-        private bool dropped = false;
-
-        private Thread mousethread;
-
-
-
-        public static bool Dragging
+        public List<string> Parameters
         {
-            get { return dragging; }
-        }
-
-        public PictureBox Box
-        {
-            get { return box; }
-        }
-
-        public TextBox Parameterbox
-        {
-            get { return parameterbox; }
-        }
-
-        public Button Deletebutton
-        {
-            get { return deletebutton; }
-        }
-
-        public int Id
-        {
-            get { return id; }
-        }
-
-
-
-        // deze methode kan worden aangeroepen na het decompilen, omdat de blokken anders op de positiie van de muis belanden
-        public void ResetPosition()
-        {
-            dragging = false;
-            box.Location = new Point(id * 100 + 50, 600);
-            parameterbox.Location = new Point(box.Location.X + 10, box.Location.Y + 70);
-            deletebutton.Location = new Point(box.Location.X + 70, box.Location.Y);
-        }
-
-        // event handler voor een klik op de picturebox
-        public void OnClick(object sender, EventArgs e)
-        {
-            dragging = false;
-            dropped = true;
-
-            // verwijder de handler van de click event van de picturebox
-            box.Click -= OnClick;
-
-            // zet de controls op de juiste positie
-            box.Location = new Point(id * 100 + 50, 600);
-            parameterbox.Location = new Point(box.Location.X + 10, box.Location.Y + 70);
-            deletebutton.Location = new Point(box.Location.X + 70, box.Location.Y);
-        }
-
-        // verander de text van de parameter textbox
-        public void SetParameter(string param)
-        {
-            parameterbox.Text = param;
-        }
-
-        // dit is de thread voor het updaten van de muis positie binnen het block control
-        // nodig voor betrouwbaar slepen en de positie van het blok veranderen
-        private void UpdateMouse()
-        {            
-            while (!dropped)
+            get
             {
-                form.Invoke((MethodInvoker)delegate
-                {
-                    box.Location = new Point(Cursor.Position.X - 10, Cursor.Position.Y - 10);
-                    parameterbox.Location = new Point(Cursor.Position.X, Cursor.Position.Y + 60);
-                    deletebutton.Location = new Point(Cursor.Position.X + 60, Cursor.Position.Y - 10);
-                });
-                Thread.Sleep(10);
-
-                /******************************************************************************************** *
-                    SNELLERE CODE, MAAR CRAHST IN DEBUG MODUS  
-
-                    box.Location = new Point(Cursor.Position.X - 10, Cursor.Position.Y - 10);
-                    parameterbox.Location = new Point(Cursor.Position.X, Cursor.Position.Y + 60);
-                    deletebutton.Location = new Point(Cursor.Position.X + 60, Cursor.Position.Y - 10);
-                    Thread.Sleep(10);
-               
-               /**********************************************************************************************/
+                return new List<string> { comboBox1.Text, comboBox2.Text};
             }
-            mousethread.Abort();
         }
 
-        // als er op de delete knop wordt gedrukt wordt de delete methode van het juiste blok uitgevoerd
-        private void DeleteClick(object sender, EventArgs e)
+        public Blocktype Type { get; set; }
+        public Block()
         {
-            Delete();
+            InitializeComponent();
+            label1.Visible = false;
+            label2.Visible = false;
+            comboBox1.Visible = false;
+            comboBox2.Visible = false;
         }
-
-        // delete alle bijbehorende instanties van het blok van de form
-        public void Delete()
+        public Block(Blocktype blocktype, bool demo = false)
         {
-            form.Controls.Remove(box);
-            form.Controls.Remove(parameterbox);
-            form.Controls.Remove(deletebutton);
-
-            box.Dispose();
-            parameterbox.Dispose();
-            deletebutton.Dispose();
-
-            dropnext.Add(id);
-            blockcount--;
-        }
-
-        public override string ToString()
-        {
-            return type.ToString() + parameterbox.Text + "$";
-        }
-
-        public Block (UI form, PictureBox origin, Blocktype type)
-        {
-            dragging = true;
-            // bepaal het id door eerst te kijken of er onlangs blokken zijn verwijderd
-            if (dropnext.Count > 0)
+            InitializeComponent();
+            Type = blocktype;
+            if (demo)
             {
-                id = dropnext[0];
-                dropnext.RemoveAt(0);
-                blockcount++;
+                label1.Visible = false;
+                label2.Visible = false;
+                comboBox1.Visible = false;
+                comboBox2.Visible = false;
             }
-            // zo niet wordt er een basic increment uitgevoerd
+        }
+
+        public void SetParameter(int parameter, string value)
+        {
+            switch(parameter)
+            {
+                case 1: comboBox1.Text = value; break;
+                case 2: comboBox2.Text = value; break;
+                default: throw new Exception("Tried to write to non-existing parameter");
+            }
+        }
+
+        private void SetType(Blocktype blocktype)
+        {
+            this.Type = blocktype;
+            if (this.Type == Blocktype.Wait || this.Type == Blocktype.Goto || 
+                this.Type == Blocktype.Move || this.Type == Blocktype.Stop ||
+                this.Type == Blocktype.Disp)
+            {
+                comboBox2.Visible = false;
+                label2.Visible = false;
+            }
+            // Set Labels and color
+            switch (this.Type)
+            {
+                case Blocktype.Move: labelBlockType.Text = "Rij"; label1.Text = "Snelheid:"; this.BackColor = Color.Green; break;
+                case Blocktype.Turn: labelBlockType.Text = "Draai"; label1.Text = "Richting:"; label2.Text = "Graden:"; this.BackColor = Color.Aqua; break;
+                case Blocktype.Stop: labelBlockType.Text = "Stop"; label1.Visible = false; comboBox1.Visible = false; this.BackColor = Color.Red; break;
+                case Blocktype.Wait: labelBlockType.Text = "Wacht"; label1.Text = "Lengte (ms):"; this.BackColor = Color.Yellow; break;
+                case Blocktype.Beep: labelBlockType.Text = "Beep"; label1.Text = "Toon:"; label2.Text = "Lengte (ms):"; this.BackColor = Color.BlueViolet; break;
+                case Blocktype.Disp: labelBlockType.Text = "Scrijf"; label1.Text = "Tekst:"; this.BackColor = Color.LimeGreen; break;
+                case Blocktype.Var: labelBlockType.Text = "Variabele"; label1.Text = "Variabele:"; label2.Text = "Waarde:"; this.BackColor = Color.Orange; break;
+                case Blocktype.Add: labelBlockType.Text = "Plus"; label1.Text = "Variabele:"; label2.Text = "Waarde:"; this.BackColor = Color.Khaki; break;
+                case Blocktype.Sub: labelBlockType.Text = "Min"; label1.Text = "Variabele:"; label2.Text = "Waarde:"; this.BackColor = Color.OrangeRed; break;
+                case Blocktype.Goto: labelBlockType.Text = "Ga naar"; label1.Text = "Blok:"; this.BackColor = Color.Magenta; break;
+                case Blocktype.GotoIf: labelBlockType.Text = "Ga naar als"; label1.Text = "Blok:"; label2.Text = "Conditie"; this.BackColor = Color.DarkMagenta; break;
+            }
+            // Set Combo Types
+            switch(this.Type)
+            {
+                case Blocktype.Turn: comboBox1.DropDownStyle = ComboBoxStyle.DropDownList; comboBox1.Items.AddRange(new string[] { "Rechts", "Links"}); comboBox1.Text = "Rechts"; break;
+                case Blocktype.Beep: comboBox1.DropDownStyle = ComboBoxStyle.DropDownList; comboBox1.Items.AddRange(new string[] { "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "G", "G#" }); comboBox1.Text = "C"; break;
+            }
+        }
+
+        private void Block_Load(object sender, EventArgs e)
+        {
+            SetType(Type);
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            bool valueParsable = true;
+            switch (Type)
+            {
+                case Blocktype.Disp:
+                    if (comboBox1.Text.Length > 15) { valueParsable = false; } break;
+                case Blocktype.Move:
+                    if (!ExistingVariable(comboBox1.Text, -255, 255)) { valueParsable = false; } break;
+                case Blocktype.Goto:
+                case Blocktype.GotoIf:
+                    if (!ExistingVariable(comboBox1.Text, 0, Compiler.BlockCount, false)) { valueParsable = false; }
+                    break;
+                case Blocktype.Wait:
+                    if (!ExistingVariable(comboBox1.Text, 0, 65530)) { valueParsable = false; } break;
+                case Blocktype.Add:
+                case Blocktype.Sub:
+                    if (!ExistingVariable(comboBox1.Text)) { valueParsable = false; } break;
+            }
+            if (valueParsable)
+            {
+                comboBox1.BackColor = Color.White;
+            }
             else
             {
-                id = blockcount++;
+                comboBox1.BackColor = Color.Red;
             }
-            this.form = form;
-            this.type = type;
+        }
 
-            // opmaak en functionaliteit voor de form controls van het blok
-            box = new PictureBox
+        private void comboBox2_TextChanged(object sender, EventArgs e)
+        {
+            bool valueParsable = true;
+            switch (Type)
             {
-                BackColor = origin.BackColor,
-                Width = origin.Width,
-                Height = origin.Height,
-            };
-            box.Click += OnClick;
+                case Blocktype.Beep:
+                case Blocktype.Turn:
+                    if (!ExistingVariable(comboBox2.Text, 0, 65530)) { valueParsable = false; }
+                    break;
+                case Blocktype.Add:
+                case Blocktype.Sub:
+                    if (!ExistingVariable(comboBox2.Text, -65530, 65530)) { valueParsable = false; }
+                    break;
 
-            parameterbox = new TextBox
+            }
+            if (valueParsable)
             {
-                BackColor = Color.White,
-                Width = 80,
-                Height = 20,
-            };
-
-            deletebutton = new Button
+                comboBox2.BackColor = Color.White;
+            }
+            else
             {
-                BackColor = Color.LightGray,
-                Width = 30,
-                Height = 30,
-                Text = "X",
-                ForeColor = Color.Red,
-            };
-            deletebutton.Click += DeleteClick;
+                comboBox2.BackColor = Color.Red;
+            }
+        }
 
-            form.Controls.Add(parameterbox);
-            form.Controls.Add(deletebutton);
-            form.Controls.Add(box);
-
-            // start met het volgen van de muis
-            mousethread = new Thread(new ThreadStart(UpdateMouse));
-            mousethread.IsBackground = true;
-
-            mousethread.Start();
+        private bool ExistingVariable(string text, int minvalue, int maxvalue, bool canbeVariable = true)
+        {
+            if (int.TryParse(text, out int value))
+            {
+                if (value >= minvalue && value <= maxvalue)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                string variablename = text.ToLower().Trim();
+                if (Compiler.GetGlobalVariables().Exists(name => name.Equals(variablename)) && canbeVariable) // And if it actually is an variable, do as told!
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        private bool ExistingVariable(string text)
+        {
+            string variablename = text.ToLower().Trim();
+            if (Compiler.GetGlobalVariables().Exists(name => name.Equals(variablename))) // And if it actually is an variable, do as told!
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

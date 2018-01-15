@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ev5
 {
-    class UserProject
+    public class UserProject
     {
         private int userid;
         private int projectid;

@@ -30,7 +30,7 @@ namespace ev5
                 
                 try
                 {
-                    return File.ReadLines(currentfile).First();
+                    return File.ReadAllText(currentfile);
                 }
                 catch (ArgumentOutOfRangeException)
                 {

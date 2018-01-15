@@ -23,9 +23,9 @@ namespace ev5
                 if (Database.Getpassword(username) == wachtwoord)
                 {
                     //verschuilt dit form en maakt een nieuwe aan
-                    UI userinterface = new UI(username);
-                    userinterface.Show();
-                    userinterface.FormClosed += UIClosed;
+                    //UI userinterface = new UI(username);
+                    //userinterface.Show();
+                    //userinterface.FormClosed += UIClosed;
                     Hide();
                 }
                 else

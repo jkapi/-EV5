@@ -10,9 +10,15 @@ namespace ev5
     {
         Move,
         Turn,
-        Slep,
+        Stop,
+        Wait,
         Disp,
         Beep,
-        Umov,
+        If,
+        Var,
+        Add,
+        Sub,
+        Goto,
+        GotoIf
     }
 }

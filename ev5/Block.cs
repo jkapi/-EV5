@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace ev5
 {
+    /// <summary>
+    /// Block class
+    /// Currently everything is handled in one class because I couldn't be bothered to make an abstact class
+    /// and copy even more code than is used here.
+    /// </summary>
     public partial class Block : UserControl
     {
         public List<string> Parameters
@@ -21,6 +26,11 @@ namespace ev5
         }
 
         public Blocktype Type { get; set; }
+        /// <summary>
+        /// Block initializer for demo blocks.
+        /// Blocks called from forms use this constructor and set the blocktype above here accordingly.
+        /// That's why the SetType function is called from the Load function
+        /// </summary>
         public Block()
         {
             InitializeComponent();
@@ -62,7 +72,7 @@ namespace ev5
                 comboBox2.Visible = false;
                 label2.Visible = false;
             }
-            // Set Labels and color
+            // Set Labels and background color
             switch (this.Type)
             {
                 case Blocktype.Move: labelBlockType.Text = "Rij"; label1.Text = "Snelheid:"; this.BackColor = Color.Green; break;
@@ -77,7 +87,7 @@ namespace ev5
                 case Blocktype.Goto: labelBlockType.Text = "Ga naar"; label1.Text = "Blok:"; this.BackColor = Color.Magenta; break;
                 case Blocktype.GotoIf: labelBlockType.Text = "Ga naar als"; label1.Text = "Blok:"; label2.Text = "Conditie"; this.BackColor = Color.DarkMagenta; break;
             }
-            // Set Combo Types
+            // Set Combo Types and values
             switch(this.Type)
             {
                 case Blocktype.Turn: comboBox1.DropDownStyle = ComboBoxStyle.DropDownList; comboBox1.Items.AddRange(new string[] { "Rechts", "Links"}); comboBox1.Text = "Rechts"; break;
@@ -89,7 +99,11 @@ namespace ev5
         {
             SetType(Type);
         }
-
+        
+        /// <summary>
+        /// Kijk of de variabele in comboBox1 klopt.
+        /// Maakt de achtergrond van comboBox1 rood als er iets fout is
+        /// </summary>
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
             bool valueParsable = true;
@@ -119,6 +133,10 @@ namespace ev5
             }
         }
 
+        /// <summary>
+        /// Kijk of de variabele in comboBox2 klopt.
+        /// Maakt de achtergrond van comboBox2 rood als er iets fout is
+        /// </summary>
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
             bool valueParsable = true;

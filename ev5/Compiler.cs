@@ -12,6 +12,7 @@ namespace ev5
         private static char SplitChar = '\n';
         private static List<string> globalvariables;
         public static int BlockCount = 0;
+
         public static string CompileFile(List<Block> blocks)
         {
             string ret = FileHeader;

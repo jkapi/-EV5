@@ -29,6 +29,7 @@ namespace ev5
 
         string username = "";
 
+        // LockWindow handle, used to reduce visual glitches in display updates in timer tick
         [DllImport("user32.dll")]
         private static extern long LockWindowUpdate(IntPtr Handle);
 
@@ -41,6 +42,7 @@ namespace ev5
             WindowState = FormWindowState.Maximized;
 
             // Force double buffering on EVERYTHING
+            // Fixes some visual glitches when moving a lot of things at the same time.
             CreateParams handleParam = base.CreateParams;
             handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
 
@@ -74,14 +76,14 @@ namespace ev5
             if (draggingBlock == true)
             {
                 // Only drag if moved a bit, not just for clicking.
-                if (distanceBetweenPoints(Cursor.Position, dragStartPosition) > 10)
+                if (distanceBetweenPoints(Cursor.Position, dragStartPosition) > 20)
                 {
                     dragBlock.Location = Cursor.Position;
                     dragBlock.BringToFront(); // Bring to top
                     dragBlock.Invalidate();
                     if (MouseButtons != MouseButtons.Left) // If mouse up
                     {
-                        if (dragBlock.Location.Y < Size.Height - 320)
+                        if (dragBlock.Location.Y < Size.Height - 320) // If inside Workspace
                         {
                             draggingBlock = false;
                             bool moveOver = false;
@@ -168,6 +170,9 @@ namespace ev5
             draggingBlock = true;
         }
 
+        /// <summary>
+        /// Calculates distance between 2 points
+        /// </summary>
         private int distanceBetweenPoints(Point p1, Point p2)
         {
             int dX = p1.X - p2.X;
@@ -190,6 +195,10 @@ namespace ev5
             connectionthread.Start();
         }
 
+        /// <summary>
+        /// General handler for all Demo block drag events. Used to pick a block from the select tabs to the workspace
+        /// </summary>
+        /// <param name="sender"></param>
         private void blockChoose_MouseDown(object sender, MouseEventArgs e)
         {
             dragStartPosition = Cursor.Position;
@@ -198,6 +207,9 @@ namespace ev5
             draggingBlock = true;
         }
 
+        /// <summary>
+        /// Keyboards handler for Key Shortcuts
+        /// </summary>
         private void MainInterface_KeyDown(object sender, KeyEventArgs e)
         {
             // shortcut keys
@@ -238,6 +250,9 @@ namespace ev5
 
         }
 
+        /// <summary>
+        /// Resets the workspace
+        /// </summary>
         private void NewWorkspace()
         {
             // Remove all blocks from everywhere
@@ -245,6 +260,7 @@ namespace ev5
             {
                 if (Controls.Contains(block)) { Controls.Remove(block); }
                 if (panelWorkspace.Controls.Contains(block)) { panelWorkspace.Controls.Remove(block); }
+                block.Dispose();
             }
             blockList.Clear();
 
@@ -275,10 +291,14 @@ namespace ev5
             {
                 MessageBox.Show(ex.Message);
             }
+            // Suspend layout to stop flickering
+            panelWorkspace.SuspendLayout();
             foreach (Block block in blockList)
             {
                 panelWorkspace.Controls.Add(block);
             }
+            panelWorkspace.ResumeLayout();
+            panelWorkspace.Invalidate();
         }
 
         private void buttonCompile_Click(object sender = null, object e = null)

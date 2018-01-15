@@ -68,7 +68,7 @@
             // VoornaamTB
             // 
             this.VoornaamTB.Location = new System.Drawing.Point(53, 53);
-            this.VoornaamTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VoornaamTB.Margin = new System.Windows.Forms.Padding(2);
             this.VoornaamTB.Name = "VoornaamTB";
             this.VoornaamTB.Size = new System.Drawing.Size(177, 23);
             this.VoornaamTB.TabIndex = 0;
@@ -76,7 +76,7 @@
             // TussenvoegselTB
             // 
             this.TussenvoegselTB.Location = new System.Drawing.Point(53, 125);
-            this.TussenvoegselTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TussenvoegselTB.Margin = new System.Windows.Forms.Padding(2);
             this.TussenvoegselTB.Name = "TussenvoegselTB";
             this.TussenvoegselTB.Size = new System.Drawing.Size(177, 23);
             this.TussenvoegselTB.TabIndex = 1;
@@ -95,7 +95,7 @@
             // AchternaamTB
             // 
             this.AchternaamTB.Location = new System.Drawing.Point(53, 198);
-            this.AchternaamTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AchternaamTB.Margin = new System.Windows.Forms.Padding(2);
             this.AchternaamTB.Name = "AchternaamTB";
             this.AchternaamTB.Size = new System.Drawing.Size(177, 23);
             this.AchternaamTB.TabIndex = 2;
@@ -123,9 +123,9 @@
             this.groupBoxNaam.Controls.Add(this.TussenvoegselTB);
             this.groupBoxNaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBoxNaam.Location = new System.Drawing.Point(40, 22);
-            this.groupBoxNaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxNaam.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxNaam.Name = "groupBoxNaam";
-            this.groupBoxNaam.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxNaam.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxNaam.Size = new System.Drawing.Size(283, 327);
             this.groupBoxNaam.TabIndex = 6;
             this.groupBoxNaam.TabStop = false;
@@ -134,7 +134,7 @@
             // EmailTB
             // 
             this.EmailTB.Location = new System.Drawing.Point(54, 277);
-            this.EmailTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EmailTB.Margin = new System.Windows.Forms.Padding(2);
             this.EmailTB.Name = "EmailTB";
             this.EmailTB.Size = new System.Drawing.Size(177, 23);
             this.EmailTB.TabIndex = 3;
@@ -160,9 +160,9 @@
             this.GroupBoxUser.Controls.Add(this.NewWachtwoordTB);
             this.GroupBoxUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.GroupBoxUser.Location = new System.Drawing.Point(356, 206);
-            this.GroupBoxUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GroupBoxUser.Margin = new System.Windows.Forms.Padding(2);
             this.GroupBoxUser.Name = "GroupBoxUser";
-            this.GroupBoxUser.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GroupBoxUser.Padding = new System.Windows.Forms.Padding(2);
             this.GroupBoxUser.Size = new System.Drawing.Size(298, 190);
             this.GroupBoxUser.TabIndex = 7;
             this.GroupBoxUser.TabStop = false;
@@ -182,7 +182,7 @@
             // NewUsernameTB
             // 
             this.NewUsernameTB.Location = new System.Drawing.Point(30, 60);
-            this.NewUsernameTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NewUsernameTB.Margin = new System.Windows.Forms.Padding(2);
             this.NewUsernameTB.Name = "NewUsernameTB";
             this.NewUsernameTB.Size = new System.Drawing.Size(177, 23);
             this.NewUsernameTB.TabIndex = 5;
@@ -201,10 +201,11 @@
             // NewWachtwoordTB
             // 
             this.NewWachtwoordTB.Location = new System.Drawing.Point(30, 137);
-            this.NewWachtwoordTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NewWachtwoordTB.Margin = new System.Windows.Forms.Padding(2);
             this.NewWachtwoordTB.Name = "NewWachtwoordTB";
             this.NewWachtwoordTB.Size = new System.Drawing.Size(177, 23);
             this.NewWachtwoordTB.TabIndex = 6;
+            this.NewWachtwoordTB.UseSystemPasswordChar = true;
             // 
             // SchoolGroupBox
             // 
@@ -215,9 +216,9 @@
             this.SchoolGroupBox.Controls.Add(this.TextLB1);
             this.SchoolGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.SchoolGroupBox.Location = new System.Drawing.Point(356, 24);
-            this.SchoolGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SchoolGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.SchoolGroupBox.Name = "SchoolGroupBox";
-            this.SchoolGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SchoolGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.SchoolGroupBox.Size = new System.Drawing.Size(298, 171);
             this.SchoolGroupBox.TabIndex = 8;
             this.SchoolGroupBox.TabStop = false;
@@ -226,7 +227,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(20, 122);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(20, 24);
             this.button2.TabIndex = 8;
@@ -237,7 +238,7 @@
             // Addschool
             // 
             this.Addschool.Location = new System.Drawing.Point(224, 123);
-            this.Addschool.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Addschool.Margin = new System.Windows.Forms.Padding(2);
             this.Addschool.Name = "Addschool";
             this.Addschool.Size = new System.Drawing.Size(70, 23);
             this.Addschool.TabIndex = 9;
@@ -252,7 +253,7 @@
             this.SchoolComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.SchoolComboBox.FormattingEnabled = true;
             this.SchoolComboBox.Location = new System.Drawing.Point(44, 123);
-            this.SchoolComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SchoolComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.SchoolComboBox.Name = "SchoolComboBox";
             this.SchoolComboBox.Size = new System.Drawing.Size(176, 24);
             this.SchoolComboBox.TabIndex = 4;
@@ -281,7 +282,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(118, 370);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 55);
             this.button1.TabIndex = 7;
@@ -298,9 +299,9 @@
             this.Controls.Add(this.SchoolGroupBox);
             this.Controls.Add(this.GroupBoxUser);
             this.Controls.Add(this.groupBoxNaam);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "newAccount";
-            this.Text = "newAccount";
+            this.Text = "Nieuw Account";
             this.groupBoxNaam.ResumeLayout(false);
             this.groupBoxNaam.PerformLayout();
             this.GroupBoxUser.ResumeLayout(false);

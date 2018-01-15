@@ -44,6 +44,7 @@
             this.WachtwoordTB.Name = "WachtwoordTB";
             this.WachtwoordTB.Size = new System.Drawing.Size(175, 20);
             this.WachtwoordTB.TabIndex = 1;
+            this.WachtwoordTB.UseSystemPasswordChar = true;
             // 
             // UsernameTB
             // 

@@ -41,7 +41,7 @@
             this.Projectbox.Name = "Projectbox";
             this.Projectbox.Size = new System.Drawing.Size(260, 238);
             this.Projectbox.TabIndex = 0;
-            this.Projectbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Projectbox_Doubleclick);
+            this.Projectbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Projectbox_DoubleClick);
             // 
             // label1
             // 

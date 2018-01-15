@@ -30,6 +30,10 @@ namespace ev5
         private void Projectbox_DoubleClick(object sender, MouseEventArgs e)
         {
             UserProject project = (UserProject)Projectbox.SelectedItem;
+            if (SelectedProject != null)
+            {
+                SelectedProject.Invoke(sender, project);
+            }
             Close();
         }
 

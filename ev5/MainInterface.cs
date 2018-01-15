@@ -27,6 +27,8 @@ namespace ev5
 
         List<Block> blockList = new List<Block>();
 
+        string username = "";
+
         [DllImport("user32.dll")]
         private static extern long LockWindowUpdate(IntPtr Handle);
 
@@ -43,6 +45,23 @@ namespace ev5
             handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
 
             UpdateStyles();
+        }
+
+        public MainInterface(string username)
+        {
+            InitializeComponent();
+
+            // Fullscreen 
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+
+            // Force double buffering on EVERYTHING
+            CreateParams handleParam = base.CreateParams;
+            handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
+
+            UpdateStyles();
+
+            this.username = username;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -288,6 +307,29 @@ namespace ev5
         private void buttonFileSaveAs_Click(object sender, EventArgs e)
         {
             file.SaveAs(Compiler.CompileFile(blockList));
+        }
+
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+            Downloadpage dlPage = new Downloadpage();
+            dlPage.SelectedProject += DlPage_SelectedProject;
+        }
+
+        private void DlPage_SelectedProject(object sender, UserProject e)
+        {
+            NewWorkspace();
+            try
+            {
+                blockList = Compiler.DecompileFile(e.Content);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            foreach (Block block in blockList)
+            {
+                panelWorkspace.Controls.Add(block);
+            }
         }
     }
 }

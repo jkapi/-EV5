@@ -14,18 +14,34 @@ namespace ev5
     {
         public Downloadpage()
         {
+            this.searchcommand = "*";
             InitializeComponent();
         }
 
         public Downloadpage(string searchcommand)
         {
             this.searchcommand = searchcommand;
+            InitializeComponent();
         }
 
         private string searchcommand;
 
         private void Downloadpage_Load(object sender, EventArgs e)
         {
+            ShowProjects();
+        }
+
+        public event EventHandler<UserProject> SelectedProject;
+
+        private void Projectbox_DoubleClick(object sender, MouseEventArgs e)
+        {
+            UserProject project = (UserProject)Projectbox.SelectedItem;
+            Close();
+        }
+
+        private void ShowProjects()
+        {
+            Projectbox.Items.Clear();
             List<UserProject> projects = Database.SearchProjects(searchcommand);
 
             foreach (UserProject project in projects)
@@ -34,12 +50,10 @@ namespace ev5
             }
         }
 
-        private void Projectbox_DoubleClick(object sender, MouseEventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            UserProject project = (UserProject)Projectbox.SelectedItem;
-            //UI window = new UI(project.Projectname, project.Content);
-            //window.Show();
-            Close();
+            searchcommand = textBox1.Text;
+            ShowProjects();
         }
     }
 }

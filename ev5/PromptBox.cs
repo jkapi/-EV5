@@ -64,7 +64,7 @@ namespace ev5
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.textBox1.Location = new System.Drawing.Point(158, 108);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 26);
+            this.textBox1.Size = new System.Drawing.Size(236, 23);
             this.textBox1.TabIndex = 1;
             // 
             // button1
@@ -79,7 +79,7 @@ namespace ev5
             // 
             // PromptBox
             // 
-            this.ClientSize = new System.Drawing.Size(554, 285);
+            this.ClientSize = new System.Drawing.Size(554, 217);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);

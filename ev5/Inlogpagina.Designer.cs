@@ -58,18 +58,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(33, 53);
+            this.label1.Location = new System.Drawing.Point(3, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Username";
+            this.label1.Text = "Gebruikersnaam";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(33, 102);
+            this.label2.Location = new System.Drawing.Point(30, 103);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 17);
@@ -81,7 +81,7 @@
             this.LoginBttn.Location = new System.Drawing.Point(120, 143);
             this.LoginBttn.Margin = new System.Windows.Forms.Padding(2);
             this.LoginBttn.Name = "LoginBttn";
-            this.LoginBttn.Size = new System.Drawing.Size(69, 32);
+            this.LoginBttn.Size = new System.Drawing.Size(79, 32);
             this.LoginBttn.TabIndex = 2;
             this.LoginBttn.Text = "Login";
             this.LoginBttn.UseVisualStyleBackColor = true;
@@ -89,12 +89,12 @@
             // 
             // SignupBttn
             // 
-            this.SignupBttn.Location = new System.Drawing.Point(225, 143);
+            this.SignupBttn.Location = new System.Drawing.Point(203, 143);
             this.SignupBttn.Margin = new System.Windows.Forms.Padding(2);
             this.SignupBttn.Name = "SignupBttn";
-            this.SignupBttn.Size = new System.Drawing.Size(69, 32);
+            this.SignupBttn.Size = new System.Drawing.Size(91, 32);
             this.SignupBttn.TabIndex = 3;
-            this.SignupBttn.Text = "Sign up";
+            this.SignupBttn.Text = "Nieuw Account";
             this.SignupBttn.UseVisualStyleBackColor = true;
             this.SignupBttn.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 426);
+            this.ClientSize = new System.Drawing.Size(356, 203);
             this.Controls.Add(this.SignupBttn);
             this.Controls.Add(this.LoginBttn);
             this.Controls.Add(this.label2);
@@ -111,7 +111,7 @@
             this.Controls.Add(this.WachtwoordTB);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Inlogpagina";
-            this.Text = "Inlogpagina";
+            this.Text = "EV5";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

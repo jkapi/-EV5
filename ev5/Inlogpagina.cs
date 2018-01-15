@@ -23,15 +23,15 @@ namespace ev5
                 if (Database.Getpassword(username) == wachtwoord)
                 {
                     //verschuilt dit form en maakt een nieuwe aan
-                    //UI userinterface = new UI(username);
-                    //userinterface.Show();
-                    //userinterface.FormClosed += UIClosed;
+                    MainInterface userinterface = new MainInterface(username);
+                    userinterface.Show();
+                    userinterface.FormClosed += UIClosed;
                     Hide();
                 }
                 else
                 {
                     WachtwoordTB.Text = "";
-                    MessageBox.Show("Combinatie Username en Password incorrect");
+                    MessageBox.Show("Gebruikersnaam of wachtwoord incorrect");
                 }
             }
             else

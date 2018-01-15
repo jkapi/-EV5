@@ -13,7 +13,7 @@ namespace ev5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainInterface());
+            Application.Run(new Inlogpagina());
         }
     }
 }

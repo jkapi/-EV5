@@ -55,6 +55,7 @@
             this.block2 = new ev5.Block();
             this.block1 = new ev5.Block();
             this.panelWorkspace = new System.Windows.Forms.Panel();
+            this.buttonDownload = new System.Windows.Forms.Button();
             this.panelUI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEV5)).BeginInit();
             this.tabControlBlocks.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // panelUI
             // 
+            this.panelUI.Controls.Add(this.buttonDownload);
             this.panelUI.Controls.Add(this.buttonCompile);
             this.panelUI.Controls.Add(this.buttonFileSaveAs);
             this.panelUI.Controls.Add(this.buttonFileNew);
@@ -88,7 +90,7 @@
             // buttonCompile
             // 
             this.buttonCompile.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCompile.Location = new System.Drawing.Point(480, 277);
+            this.buttonCompile.Location = new System.Drawing.Point(597, 277);
             this.buttonCompile.Name = "buttonCompile";
             this.buttonCompile.Size = new System.Drawing.Size(111, 40);
             this.buttonCompile.TabIndex = 9;
@@ -99,7 +101,7 @@
             // buttonFileSaveAs
             // 
             this.buttonFileSaveAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFileSaveAs.Location = new System.Drawing.Point(355, 277);
+            this.buttonFileSaveAs.Location = new System.Drawing.Point(472, 277);
             this.buttonFileSaveAs.Name = "buttonFileSaveAs";
             this.buttonFileSaveAs.Size = new System.Drawing.Size(119, 40);
             this.buttonFileSaveAs.TabIndex = 8;
@@ -121,7 +123,7 @@
             // buttonFileSave
             // 
             this.buttonFileSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFileSave.Location = new System.Drawing.Point(238, 277);
+            this.buttonFileSave.Location = new System.Drawing.Point(355, 277);
             this.buttonFileSave.Name = "buttonFileSave";
             this.buttonFileSave.Size = new System.Drawing.Size(111, 40);
             this.buttonFileSave.TabIndex = 6;
@@ -352,6 +354,17 @@
             this.panelWorkspace.Size = new System.Drawing.Size(1223, 129);
             this.panelWorkspace.TabIndex = 2;
             // 
+            // buttonDownload
+            // 
+            this.buttonDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDownload.Location = new System.Drawing.Point(238, 277);
+            this.buttonDownload.Name = "buttonDownload";
+            this.buttonDownload.Size = new System.Drawing.Size(111, 40);
+            this.buttonDownload.TabIndex = 10;
+            this.buttonDownload.Text = "Download";
+            this.buttonDownload.UseVisualStyleBackColor = true;
+            this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
+            // 
             // MainInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,5 +417,6 @@
         private Block block2;
         private Block block5;
         private Block block4;
+        private System.Windows.Forms.Button buttonDownload;
     }
 }

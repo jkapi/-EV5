@@ -35,12 +35,13 @@
             // 
             // Projectbox
             // 
+            this.Projectbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.Projectbox.FormattingEnabled = true;
             this.Projectbox.Location = new System.Drawing.Point(12, 38);
             this.Projectbox.Name = "Projectbox";
             this.Projectbox.Size = new System.Drawing.Size(260, 238);
             this.Projectbox.TabIndex = 0;
-            this.Projectbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Projectbox_DoubleClick);
+            this.Projectbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Projectbox_Doubleclick);
             // 
             // label1
             // 
@@ -69,7 +70,6 @@
             this.Controls.Add(this.Projectbox);
             this.Name = "Downloadpage";
             this.Text = "Downloadpage";
-            this.Load += new System.EventHandler(this.Downloadpage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

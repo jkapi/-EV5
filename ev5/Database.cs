@@ -207,15 +207,16 @@ namespace ev5
 
             search = search.ToLower();
 
-            SqlCommand cmd = new SqlCommand("select * from Project where Projectnaam like @search OR Title like @start_to_end", connection);
-            cmd.Parameters.AddWithValue("@search", "%" + search + "%");
-            if (search.Length > 5)
+            SqlCommand cmd = new SqlCommand("select * from Project where Projectnaam like @search OR Projectnaam like @start_to_end", connection);
+            
+            try
             {
-                cmd.Parameters.AddWithValue("@start_to_end", search.Substring(0,3) + "%" + search.Substring(search.Length - 1, -3));
+                cmd.Parameters.AddWithValue("@search", '%' + search + '%');
+                cmd.Parameters.AddWithValue("@start_to_end", search.Substring(0, 3) + '%' + search.Substring(search.Length - 4, 3));
             }
-            else
+            catch (ArgumentOutOfRangeException)
             {
-                cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+                return null;
             }
 
             connection.Open();
@@ -224,7 +225,7 @@ namespace ev5
             {
                 while (reader.Read())
                 {
-                    projects.Add(new UserProject(reader.GetInt32(4), reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3)));
+                    projects.Add(new UserProject(Convert.ToInt32(reader.GetString(4)), reader.GetInt32(0), reader.GetString(1), Convert.ToDateTime(reader.GetString(2)), reader.GetString(3)));
                 }
             }
             connection.Close();

@@ -28,8 +28,8 @@ namespace ev5
         public override string ToString()
         {
             return "gemaakt door: " + username +
-                    "projectnaam: " + projectname + 
-                    "uploaddatum: " + Convert.ToString(uploaddate);
+                    "\nprojectnaam: " + projectname + 
+                    "\nuploaddatum: " + Convert.ToString(uploaddate) + "\n\n\n";
         }
 
         public UserProject(int userid, int projectid, string projectname, DateTime uploaddate, string content)

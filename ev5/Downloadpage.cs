@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ev5
@@ -24,7 +17,7 @@ namespace ev5
             InitializeComponent();
         }
 
-        private string searchcommand;
+            this.searchcommand = searchcommand;
 
         private void Downloadpage_Load(object sender, EventArgs e)
         {
@@ -50,6 +43,8 @@ namespace ev5
             }
         }
 
+        private string searchcommand;
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             searchcommand = textBox1.Text;
